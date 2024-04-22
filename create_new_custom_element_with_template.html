@@ -6,13 +6,31 @@
   <title>新しいカスタムHTML要素の作成（template, slotを使用）</title>
 </head>
 <body>
+  <modal-component>
+    <div slot="content">
+      <p>コンポーネントのモーダル</p>
+    </div>
+  </modal-component>
+
   <template id="modal-template">
-    <div class="modal">
+    <style>
+      .modal {
+          padding: 10px;
+          width: 300px;
+          border: 1px solid #FEFEFE;
+
+          &::backdrop {
+            background-color: rgba(0, 0, 0, 0.5);
+          }
+      }
+    </style>
+
+    <dialog class="modal">
       <div class="modal-title"></div>
       <div class="modal-content">
         <slot name="content"></slot>
       </div>
-    </div>
+    </dialog>
   </template>
 </body>
 </html>
