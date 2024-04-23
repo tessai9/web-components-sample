@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML Modules sample</title>
+</head>
+<body>
+  <sample-element></sample-element>
+
+  <div id="posts"></div>
+
+  <script type="module">
+    import { SampleElement } from "./sample-element.html";
+    import { userPost } from "./post.html";
+
+    window.customElements.define('sample-element', SampleElement);
+    document.querySelector('#posts').appendChild(userPost);
+  </script>
+</body>
+</html>

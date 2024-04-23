@@ -1,0 +1,18 @@
+<template id="sample-element">
+  <h1>SampleElement</h1>
+</template>
+
+<script type="module">
+  let importDoc = import.meta.document;
+
+  class SampleElement extends HTMLElement {
+    constructor() {
+      super();
+      let shadow = this.attachShadow({ mode: "closed" });
+      let templateElm = importDoc.getElementById("sample-element");
+      shadow.appendChild(templateElm.content.cloneNode(true));
+    }
+  }
+
+  export { SampleElement };
+</script>

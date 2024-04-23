@@ -1,0 +1,18 @@
+<template id="sample-template">
+  <h1>My Sample Component</h1>
+  <p>This is my sample component</p>
+</template>
+
+<script>
+  class SampleElement extends HTMLElement {
+    constructor() {
+      super();
+      const template = document.currentScript.ownerDocument.getElementById("sample-template");
+      const clone = template.content.cloneNode(true);
+      const shadowRoot = this.attachShadow({mode: "open"});
+      shadowRoot.appendChild(clone);
+    }
+  }
+
+  customElements.define("sample-element", SampleElement);
+</script>
