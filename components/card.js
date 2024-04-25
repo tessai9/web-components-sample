@@ -39,8 +39,7 @@ class CardComponent extends HTMLElement {
 
     .card-body {
       padding: 10px;
-    }
-    `;
+    }`;
 
     return styleElm;
   }
