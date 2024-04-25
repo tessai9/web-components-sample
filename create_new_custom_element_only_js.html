@@ -6,8 +6,22 @@
   <title>既存のHTML要素からの作成</title>
 </head>
 <body>
-  <card-component headerText="タイトル" bodyText="内容"></card-component>
+  <div id="item-list"></div>
 
-  <script type="module" src="./components/Card.js"></script>
+  <script type="module">
+    import './components/Card.js';
+
+    const items = [
+      { headerText: 'タイトル1', bodyText: '内容1' },
+      { headerText: 'タイトル2', bodyText: '内容2' },
+      { headerText: 'タイトル3', bodyText: '内容3' },
+    ];
+    items.forEach(item => {
+      const card = document.createElement('card-component');
+      card.setAttribute('headerText', item.headerText);
+      card.setAttribute('bodyText', item.bodyText);
+      document.getElementById('item-list').appendChild(card);
+    });
+  </script>
 </body>
 </html>
