@@ -1,5 +1,5 @@
 class NavbarComponent extends HTMLElement {
-  constructor() {
+  connectedCallback() {
     const navbarElm = document.querySelector("template#navbar-template").cloneNode(true);
 
     fetch('https://tesao.awesome-api.jp/user', { method: 'GET' })
